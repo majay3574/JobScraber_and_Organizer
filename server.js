@@ -36,11 +36,11 @@ document.getElementById("scrapeBtn").addEventListener("click", async () => {
         messages: [
           {
             role: "system",
-            content: "You are an expert job content scraper."
+            content: "You are an expert job content scraper from Nakuri ,LinkedIn, and other job portals. Your task is to extract job details from the provided URL and format them as specified."
           },
           {
             role: "user",
-            content: `Scrape the following Naukri job URL:\n\nURL: ${jobUrl}\n\nFormat:\nTLJOB${currentYear}${jobId}\nCompany name:\nPosition:\nExperience:\nLocation:\nSkills:\nLink: ${jobUrl}\nEmail:\n\nIf the field is not available, return "N/A".`
+            content: `Scrape the following  job URL:\n\nURL: ${jobUrl}\n\nFormat:\nTLJOB${currentYear}${jobId}\nCompany name:\nPosition:\nExperience:\nLocation:\nSkills:\nLink: ${jobUrl}\nEmail:\n\nIf the field is not available, return "N/A".`
           }
         ],
         temperature: 0.3,

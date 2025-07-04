@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Job Scraper and Organizer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="logo-section">
+      <img src="Icon.png" alt="Leaf Logo" class="logo" />
+      <h1>Job Scraper and Organizer</h1>
+    </div>
+
+    <div class="input-group">
+      <label for="jobId">🔖 Job ID</label>
+      <input type="text" id="jobId" placeholder="Enter job ID..." />
+    </div>
+
+    <div class="input-group">
+      <label for="jobUrl">🔗 Job URL</label>
+      <input type="text" id="jobUrl" placeholder="Paste Naukri job URL..." />
+    </div>
+
+    <div class="button-toolbar">
+      <button id="scrapeBtn" class="primary">⚙️ Scrape</button>
+      <button id="downloadText">📄 Download Text</button>
+      <button id="downloadJSON">📦 Download JSON</button>
+      <button id="clearOutput">🧹 Clear</button>
+      <button id="settingsBtn">🔧 Settings</button>
+    </div>
+
+    <div id="settingsPanel" class="settings-panel hidden">
+      <div class="input-group">
+        <label for="apiKey">🔐 API Key</label>
+        <input type="text" id="apiKey" placeholder="Enter your API key" />
+      </div>
+
+      <div class="input-group">
+        <label for="modelSelect">🧠 Choose Model</label>
+        <select id="modelSelect">
+          <option value="llama-3.3-70b-versatile">LLaMA 3.3 70B Versatile</option>
+          <option value="llama-3-8b">LLaMA 3 8B</option>
+          <option value="llama-2-70b">LLaMA 2 70B</option>
+        </select>
+      </div>
+    </div>
+
+    <pre id="output" class="output-box">Parsed job data will appear here...</pre>
+  </div>
+
+  <script type="module" src="server.js"></script>
+</body>
+</html>

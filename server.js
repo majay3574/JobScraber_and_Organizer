@@ -1,6 +1,9 @@
-let rawResponse = {};
-const backUp_Api = `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`;
 
+let rawResponse = {};
+function getBackUp() {
+  return "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";
+}
+const backUp_Api = getBackUp();
 document.getElementById("settingsBtn").addEventListener("click", () => {
   document.getElementById("settingsPanel").classList.toggle("hidden");
 });
@@ -36,12 +39,19 @@ document.getElementById("scrapeBtn").addEventListener("click", async () => {
         messages: [
           {
             role: "system",
-            content: "You are an expert job content scraper from Nakuri ,LinkedIn, and other job portals. Your task is to extract job details from the provided URL and format them as specified."
+            content: `You are an expert job content scraper from Nakuri ,LinkedIn, and other job portals.
+             Your task is to extract job details from the provided URL and format them as specified
+             in the prompt. Ensure to return all fields, and if a field is not available, return "N/A".
+             Scrape the job details accurately and provide them in the specified format.
+             If the job URL is invalid or the job cannot be found, return "Job not found" or "N/A".
+             and you can retrive the job details from job description`
+
           },
           {
             role: "user",
             content: `Scrape the following  job URL:\n\nURL: ${jobUrl}\n\nFormat:\nTLJOB${currentYear}${jobId}\nCompany name:\nPosition:\nExperience:\nLocation:\nSkills:\nLink: ${jobUrl}\nEmail:\n\nIf the field is not available, return "N/A".`
-          }
+          },
+
         ],
         temperature: 0.3,
         max_tokens: 3000
